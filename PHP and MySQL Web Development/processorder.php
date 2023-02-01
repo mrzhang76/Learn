@@ -1,4 +1,6 @@
 <?php 
+    require_once("file_exceptions.php");
+
     define('TIREPRICE',100);
     define('OILPRICE',10);
     define('SPARKPRICE',4);
@@ -46,17 +48,30 @@
             echo "Total including tax: $".number_format($totalamount,2)."</p>"; 
             echo "<p>Address to ship to is ".htmlspecialchars($address)."</p>";
             $outputstring = $date."\t".$tireqty." tires \t".$oilqty." oil\t".$sparkqty." spark plugs\t\$".$totalamount."\t".$address."\n";
-            @$fp = fopen("$document_root/../orders/orders.txt",'ab');
-            if(!$fp){
-                echo "<p><strong> Your order could not be processed at this time. Please try again later.</strong></p>";
-                exit;
-            }
-
-            flock($fp,LOCK_EX);
-                fwrite($fp,$outputstring,strlen($outputstring));
+            
+            try{
+                if(!($fp = @fopen("$document_root/../orders/orders.txt",'ab'))){
+                    throw new fileOpenException();
+                }
+                
+                if(!flock($fp,LOCK_EX)){
+                    throw new fileLockException();
+                }
+                
+                if(!fwrite($fp,$outputstring,strlen($outputstring))){
+                    throw new fileWriteException();
+                }
+                
                 flock($fp,LOCK_UN);
                 fclose($fp);
-                echo "<p>Order written.</p>";
+                echo "<p>Order written.</p>";    
+
+            }catch(fileOpenException $foe){
+                echo "<p><strong> Your order could not be processed at this time. Please try again later.</strong></p>";
+            }catch(Exception $e){
+                echo "<p><strong> Your order could not be processed at this time. Please try again later.</strong></p>";
+            }
+
 
               ?>
     </body>
