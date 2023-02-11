@@ -29,7 +29,7 @@ show grants for 'sally'@'localhost';
 flush privileges;
 
 create user 'bookorama'@'localhost' identified by 'bookorama123';
-grant select,insert,delete,update on books.* to 'bookorama'@'localhost';
+grant select,insert,delete,update on Books.* to 'bookorama'@'localhost';
 grant select,insert,update,delete,index,create,drop on books.* to 'bookorama'@'localhost'; 
 
 show tables;
