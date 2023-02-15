@@ -12,6 +12,7 @@
 
     header('Content-type: image/png');
     imagepng($im);
-
+    $filename = 'simple.png';
+    imagepng($im,$filename); //output png to file
     imagedestroy($im);
 ?>

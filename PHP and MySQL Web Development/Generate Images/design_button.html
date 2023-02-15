@@ -1,0 +1,26 @@
+<html>
+    <head>
+        <title>Design a Button</title>
+    </head>
+    <body>
+        <h1>Design a Button</h1>
+
+        <form action="make_button.php" method="post">
+            <p><strong>Type the Button Text: </strong></p>
+            <input type="text" name="button_text" id="button_text" value="Press Me!" size="30">
+            <p>
+                <strong>Choose Button Color: </strong><br />
+                <input type="radio" name="button_color" id="button_color_red" value="Red" />
+                <label for="button_color_red">Red</label><br />
+
+                <input type="radio" name="button_color" id="button_color_green" value="Green" />
+                <label for="button_color_green">Green</label><br />
+
+                <input type="radio" name="button_color" id="button_color_blue" value="Blue" />
+                <label for="button_color_blue">Blue</label><br />
+            </p>
+
+            <button type="submit" name="submit">Create Button</button>
+        </form>
+    </body>
+</html>
