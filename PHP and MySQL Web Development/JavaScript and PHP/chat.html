@@ -1,0 +1,32 @@
+<html>
+    <head>
+        <title>AJAX Chat</title>
+        <link href="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/5.2.3/css/bootstrap.min.css" rel="stylesheet">
+        <style>
+            
+        </style>
+    </head>
+    <body>
+        <h1 style="text-align:center">AJAX Chat</h1>
+        <div lasee="container">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h2 class="panel-title">Let`s Chat</h2>
+                </div>
+                <div class="panel-body" id="chatPanel"></div>
+                <div class = "panel-footer">
+                    <div class="input-footer">
+                        <input type="text" class="form-control" id="chatMessage" placeholder="Send a message here ..." />
+                        <span class="input-group-btn">
+                            <button id="sendMessageBtn" class="btn btn-primary has-spinner" type="button">
+                                <span class="spinner"><i class="icon-spin icon-refreash">Send</i></span>
+                            </button>
+                        </span> 
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.3/jquery.js"></script>
+        <script src="./client.js"></script>
+    </body>
+</html>
