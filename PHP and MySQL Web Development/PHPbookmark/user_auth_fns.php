@@ -13,4 +13,27 @@ function register($username,$email,$password){
         throw new Exception('Could not register you in database - please try again later.');
     }
 }
+
+function login($username,$password){
+    $conn = db_connect();
+    $result = $conn -> query("select * from user where username='".$username."' and passwd = sha1('".$password."')");
+    if(!$result)
+        throw new Exception('Could not log you in.');
+    if($result -> num_rows > 0)
+        return true;
+    else
+        throw new Exception('Could not log you in.');
+}
+
+function check_valid_user(){
+    if(!isset($_SESSION['valid_user']))
+        echo "Logged in as".$_SESSION['valid_user'].".<br />";
+    else{
+        do_html_heading('Problem: ');
+        echo 'You are not logged in.<br />';
+        do_html_url('login.php','Login');
+        do_html_footer();
+        exit;
+    }
+}
 ?>
