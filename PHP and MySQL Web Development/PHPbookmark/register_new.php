@@ -20,6 +20,9 @@ try{
     if((strlen($passwd) < 6) || (strlen($passwd) > 16)){
         throw new Exception('Your password must be between 6 and 16 characters. Please go back and try again.');
     }
+    if((strlen($username < 2 )) || (strlen($username) > 16)){
+        throw new Exception('Your username must be between 2 and 16 characters. Please go back and try again.');
+    }
 
     register($username, $email, $passwd);
     $_SESSION['valid_user'] = $username;
