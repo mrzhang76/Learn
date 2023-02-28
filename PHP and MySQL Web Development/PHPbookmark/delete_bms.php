@@ -5,7 +5,8 @@ $del_me = $_POST['del_me'];
 $valid_user = $_SESSION['valid_user'];
 do_html_header('Deleting bookmarks');
 check_valid_user();
-if(!filled_out($_POST)){
+#if(!filled_out($_POST)){ # it does not work !!!
+if(empty($_POST)){
     echo '<p>You have not chosen any bookmarks to delete. <br />Please try again.</p>';
     display_user_menu();
     do_html_footer();
