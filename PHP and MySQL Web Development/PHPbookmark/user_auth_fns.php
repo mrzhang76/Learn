@@ -1,7 +1,7 @@
 <?php
 function register($username,$email,$password){
     $conn = db_connect();
-    $result = $conn -> query("select * from where username='".$username."'");
+    $result = $conn -> query("select * from user where username='".$username."'");
     if(!$result){
         throw new Exception('Could not execute query');
     }
