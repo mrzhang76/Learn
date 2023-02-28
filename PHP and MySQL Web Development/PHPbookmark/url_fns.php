@@ -39,6 +39,7 @@ function recommend_urls($valid_user,$popularity = 1){
             and bm_URL not in (
                 select bm_URL from bookmark where username='".$valid_user."')
             group by bm_url having count(bm_url) > ".$popularity;
+    $conn = db_connect();
     if(!($result = $conn -> query($query)))
         throw new Exception('Could not find any bookmarks to recommend.');
     if($result -> num_rows == 0)

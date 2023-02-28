@@ -26,8 +26,9 @@ function login($username,$password){
 }
 
 function check_valid_user(){
-    if(isset($_SESSION['valid_user']))
+    if(isset($_SESSION['valid_user'])){
         echo "Logged in as ".$_SESSION['valid_user'].".<br />";
+    }
     else{
         do_html_heading('Problem: ');
         echo 'You are not logged in.(3)<br />';

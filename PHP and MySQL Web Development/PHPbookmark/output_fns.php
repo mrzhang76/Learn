@@ -107,7 +107,7 @@ function display_registration_form(){
 
 function display_user_urls($url_array){
     global $bm_table;
-    $bm_table;
+    $bm_table = true;
     ?>
     <br>
     <form name="bm_table" action="delete_bms.php" method="post">
@@ -129,24 +129,25 @@ function display_user_urls($url_array){
             </td>
         </tr>";
     if((is_array($url_array)) && (count($url_array) > 0)){
-        foreach($url_array as $url)
+        foreach($url_array as $url){
             if($color == "#cccccc")
                 $color = "#ffffff";
             else
                 $color = "#cccccc";
-        $urlString = $url[0];
-        $titleString = $url[1];
-        $descriptionString = $url[2];
-        echo "<tr bgcolor=\"".$color."\">
-                <td>
-                    <a href=\"".$urlString."\">".htmlspecialchars($urlString)."</a>
-                </td>
-                <td>".htmlspecialchars($titleString)."</td>
-                <td>".htmlspecialchars($descriptionString)."</td>
-                <td>
-                    <input type=\"checkbox\" name=\"del_me[]\" value=\"".$urlString."\">
-                </td>
-            </tr>";
+            $urlString = $url[0];
+            $titleString = $url[1];
+            $descriptionString = $url[2];
+            echo "<tr bgcolor=\"".$color."\">
+                    <td>
+                        <a href=\"".$urlString."\">".htmlspecialchars($urlString)."</a>
+                    </td>
+                    <td>".htmlspecialchars($titleString)."</td>
+                    <td>".htmlspecialchars($descriptionString)."</td>
+                    <td>
+                        <input type=\"checkbox\" name=\"del_me[]\" value=\"".$urlString."\">
+                    </td>
+                </tr>";
+        }
     }
     else
         echo "<tr><td>No bookmarks on record.</td></tr>";
@@ -164,7 +165,7 @@ function display_user_menu(){
     <?php 
     global $bm_table;
     if($bm_table == true)
-        echo "<a href=\'#\" onclick=\"bm_table.submit();\">Delete BM</a> &nbsp;|&nbsp;";
+        echo "<a href=\"#\" onclick=\"bm_table.submit();\">Delete BM</a> &nbsp;|&nbsp;";
     else
         echo "<span style=\"color:#cccccc\">Delete BM</span>  &nbsp;|&nbsp;";
     ?>
