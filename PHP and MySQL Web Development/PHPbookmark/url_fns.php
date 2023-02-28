@@ -46,7 +46,7 @@ function recommend_urls($valid_user,$popularity = 1){
         throw new Exception('Could not find any bookmarks to remcommend.');
     $urls = array();
     for($count=0; $row = $result->fetch_object();$count++)
-        $urls[$count] = $rows -> bm_URL;
+        $urls[$count] = $row -> bm_URL;
     return $urls;
 }
 ?>

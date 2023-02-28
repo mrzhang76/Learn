@@ -5,7 +5,7 @@ do_html_header('Recommending URLs');
 try{
     check_valid_user();
     $urls = recommend_urls($_SESSION['valid_user']);
-    display_recommend_urls($urls);
+    display_recommended_urls($urls);
 }
 catch(Exception $e){
     echo $e -> getMessage();
