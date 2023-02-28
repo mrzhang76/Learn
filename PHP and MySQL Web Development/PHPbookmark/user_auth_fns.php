@@ -45,7 +45,7 @@ function change_password($username, $old_password, $new_password){
     if(!$result)
         throw new Exception('Password could not be changed.');
     else   
-        return ture;
+        return true;
 }
 
 function reset_password($username){

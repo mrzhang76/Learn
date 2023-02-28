@@ -196,7 +196,6 @@ function display_password_form(){
     <br>
     <form action="change_passwd.php" method="post">
         <div class="formlock">
-            <h2>Change Password</h2>
             <p>
                 <label for="old_passwd">Old Password:</label><br />
                 <input type="password" name="old_passwd" id="old_passwd" size="16" maxlength="16" required />
