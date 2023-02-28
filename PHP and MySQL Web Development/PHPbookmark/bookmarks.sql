@@ -7,7 +7,7 @@ CREATE TABLE user(
     email VARCHAR(100) NOT NULL
 );
 
-CREATE TABLE bookmarks(
+CREATE TABLE bookmark(
     username VARCHAR(16) NOT NULL,
     bm_URL VARCHAR(256) NOT NULL,
     INDEX (username),

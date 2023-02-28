@@ -25,8 +25,6 @@ function do_html_header($title){
                 do_html_heading($title);
             }
             ?>
-        </body>
-    </html>
     <?php
 }
 
