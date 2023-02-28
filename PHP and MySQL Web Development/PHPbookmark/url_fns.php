@@ -1,6 +1,6 @@
 <?php 
 function add_bm($new_url){
-    echo "Attempting to add".htmlspecialchars($new_url)."<br />";
+    echo "Attempting to add ".htmlspecialchars($new_url)."<br />";
     $valid_user = $_SESSION['valid_user'];
     $conn = db_connect();
     $result = $conn -> query("select * from bookmark where username='".$valid_user."'and bm_URL='".$new_url."'");
@@ -18,7 +18,7 @@ function get_user_urls($username){
         return false;
     $url_array = array();
     for($count = 1;$row = $result -> fetch_row(); ++$count)
-        $url_array[$count] = $row[0];
+        $url_array[$count] = $row;
     return $url_array;
 }
 
